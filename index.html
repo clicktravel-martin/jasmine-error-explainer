@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html data-ng-app="jasmineErrorExplainer">
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Jasmine error explainer</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+    <style>
+        .correct {
+            background-color: lightgreen;
+        }
+        .incorrect {
+            background-color: lightpink;
+        }
+        .highlight{
+            background-color: #ffce55;
+        }
+    </style>
+</head>
+<body data-ng-cloak data-ng-controller="Main">
+
+<div class="container">
+
+    <div class="page-header">
+        <h1>Jasmine error explainer</h1>
+    </div>
+
+    <div class="row" style="margin-bottom: 20px">
+        <div class="col-md-12">
+            <div class="alert alert-danger" data-ng-show="internalError" role="alert">Something went wrong. Sorry!</div>
+
+            <form role="form">
+                <div class="form-group">
+                    <input class="form-control" id="input-field" data-ng-model="input" placeholder="Paste your error message here...">
+                </div>
+                <button class="btn btn-primary" type="submit" data-ng-click="explain()" data-ng-disabled="!input">Explain</button>
+                <p class="pull-right">
+                    <a href="http://www.clicktravel.com"><img class="logo" title="Click Travel logo" alt="Click Travel logo" src="click-travel-logo-small.png"></a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div class="row" data-ng-show="message">
+        <div class="col-md-12">
+            <div class="alert alert-info" data-ng-bind="message"></div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 20px" data-ng-show="actual">
+        <div class="col-md-12">
+            <h4>Actual</h4>
+            <samp data-ng-bind-html="actual"></samp>
+        </div>
+    </div>
+
+    <div class="row" data-ng-show="expected">
+        <div class="col-md-12">
+            <h4>Expected</h4>
+            <samp data-ng-bind-html="expected"></samp>
+        </div>
+    </div>
+</div>
+
+<script src="angular-sanitize.min.js"></script>
+<script src="jasmine-error-explainer.js"></script>
+
+</body>
+</html>
