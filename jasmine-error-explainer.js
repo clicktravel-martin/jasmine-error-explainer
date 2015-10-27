@@ -6,7 +6,7 @@
     ])
         .controller('Main', function ($scope) {
 
-            var CALLED_WITH = /^Expected spy (?:.+) to have been called with (.+) but actual calls were (.+)\.$/,
+            var CALLED_WITH = /^Expected spy (?:.+) to have been called with (.+), but actual calls were (.+)\.$/,
                 EQUAL = /^Expected (.+) to equal (.+)\.$/,
                 BE = /^Expected (.+) to be (.+)\.$/;
 
